@@ -43,8 +43,9 @@ def extract_zip():
 def import_alstroemeria(api: sly.Api, task_id, context, state, app_logger):
 
     gdown.download(g.alstroemeria_url, g.archive_path, quiet=False)
-    app_logger.warn('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', os.listdir(g.work_dir_path))
     extract_zip()
+
+    app_logger.warn('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', os.listdir(g.work_dir_path))
 
     alstroemeria_data_path = os.path.join(g.work_dir_path, sly.io.fs.get_file_name(g.arch_name))
 
