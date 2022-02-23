@@ -18,6 +18,7 @@ WORKSPACE_ID = int(os.environ['context.workspaceId'])
 logger = sly.logger
 
 sample_percent = int(os.environ["modal.state.samplePercent"])
+images_count = round(414 * sample_percent / 100)
 
 project_name = 'Alstroemeria'
 dataset_name = 'ds'

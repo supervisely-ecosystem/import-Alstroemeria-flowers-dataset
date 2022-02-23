@@ -53,7 +53,7 @@ def import_alstroemeria(api: sly.Api, task_id, context, state, app_logger):
 
     new_dataset = api.dataset.create(new_project.id, g.dataset_name, change_name_if_conflict=True)
 
-    sample_img_path = random.sample(os.listdir(img_path), g.sample_percent)
+    sample_img_path = random.sample(os.listdir(img_path), g.images_count)
 
     progress = sly.Progress('Create dataset {}'.format(g.dataset_name), len(sample_img_path), app_logger)
     for img_batch in sly.batched(sample_img_path, batch_size=g.batch_size):
