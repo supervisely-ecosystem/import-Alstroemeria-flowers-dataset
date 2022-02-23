@@ -45,12 +45,8 @@ def import_alstroemeria(api: sly.Api, task_id, context, state, app_logger):
     gdown.download(g.alstroemeria_url, g.archive_path, quiet=False)
     extract_zip()
 
-    app_logger.warn('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', os.listdir(g.work_dir_path))
-
-    alstroemeria_data_path = os.path.join(g.work_dir_path, sly.io.fs.get_file_name(g.arch_name))
-
-    img_path = os.path.join(alstroemeria_data_path, g.images_folder)
-    ann_path = os.path.join(alstroemeria_data_path, g.anns_folder)
+    img_path = os.path.join(g.work_dir_path, g.images_folder)
+    ann_path = os.path.join(g.work_dir_path, g.anns_folder)
 
     new_project = api.project.create(g.WORKSPACE_ID, g.project_name, change_name_if_conflict=True)
     api.project.update_meta(new_project.id, g.meta.to_json())
