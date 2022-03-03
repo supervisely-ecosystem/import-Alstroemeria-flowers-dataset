@@ -2,10 +2,8 @@
 import zipfile, os, random, csv
 import supervisely as sly
 import sly_globals as g
-from supervisely.io.fs import download, get_file_name, get_file_name_with_ext
-import numpy as np
+from supervisely.io.fs import get_file_name
 import gdown
-from cv2 import connectedComponents
 
 
 def read_csv(file_path):
